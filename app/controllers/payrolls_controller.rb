@@ -3,17 +3,20 @@ class PayrollsController < ApplicationController
   before_action :new_payroll, only: [:index]
 
   def index
-    @payrolls = Payroll.ordered.all
+    @payrolls = Payroll.all.ordered
   end
 
   def create
+    PayrollService.new(5, 20).generate
+
     redirect_to action: :index
   end
 
   def destroy
     @payroll = Payroll.find params[:id]
+
     if @payroll.destroy
-      redirect_to :back
+      redirect_to action: :index
     end
   end
 

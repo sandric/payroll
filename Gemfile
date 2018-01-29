@@ -37,12 +37,17 @@ gem 'pg', '~> 0.21.0'
 
 gem 'haml-rails'
 
+gem 'whenever', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'timecop'
+  gem 'rspec-rails'
 end
 
 group :development do
